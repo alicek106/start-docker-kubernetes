@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod
+spec:
+  containers:
+  - name: my-nginx-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+      protocol: TCP
+
+  - name: ubuntu-sidecar-container
+    image: alicek106/rr-test:curl
+    args: ["tail", "-f", "/dev/null"] # 컨테이너가 종료되지 않도록 유지합니다.
+

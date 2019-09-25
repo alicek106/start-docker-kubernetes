@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: our-nginx-pods-label
+    matchExpressions:
+      - key: app2
+        values:
+          - my-nginx-pods-label
+          - your-nginx-pods-label
+        operator: In
+  template:
+    metadata:
+      name: my-nginx-pod
+      labels:
+        app: our-nginx-pods-label
+        app2: my-nginx-pods-label
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
