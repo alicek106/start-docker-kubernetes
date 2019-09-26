@@ -11,6 +11,6 @@ spec:
       protocol: TCP
 
   - name: ubuntu-sidecar-container
-    image: alicek106/rr-test:curl
-    args: ["tail", "-f", "/dev/null"] # 컨테이너가 종료되지 않도록 유지합니다.
-
+    image: ubuntu:16.04
+    command: ["tail"]
+    args: ["-f", "/dev/null"] # 컨테이너가 종료되지 않도록 유지합니다.
