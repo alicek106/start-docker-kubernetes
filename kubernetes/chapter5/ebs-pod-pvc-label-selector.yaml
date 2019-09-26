@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-ebs-pvc-selector
+spec:
+  selector:
+    matchLabels:
+      region: ap-northeast-2a
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-mount-container
+spec:
+  containers:
+    - name: ebs-mount-container
+      image: busybox
+      args: [ "tail", "-f", "/dev/null" ]
+      volumeMounts:
+      - name: ebs-volume
+        mountPath: /mnt
+  volumes:
+  - name : ebs-volume
+    persistentVolumeClaim:
+      claimName: my-ebs-pvc-selector

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-pv-label
+  labels:
+    region: ap-northeast-2a
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    fsType: ext4
+    # volumeID: vol-025c52fbd39d35417
+    volumeID: <여러분의 VOLUME ID를 입력합니다> 
