@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: container-selective-env-example
+spec:
+  containers:
+    - name: my-container
+      image: busybox
+      args: ['tail', '-f', '/dev/null']
+      env:
+      - name: ENV_KEYNAME_1     # (1.1) 컨테이너에 새롭게 등록될 환경 변수 이름
+        valueFrom: 
+          configMapKeyRef:
+            name: log-level-configmap
+            key: LOG_LEVEL
+      - name: ENV_KEYNAME_2  # (1.2) 컨테이너에 새롭게 등록될 환경 변수 이름
+        valueFrom: 
+          configMapKeyRef:
+            name: start-k8s      # (2) 참조할 컨피그맵의 이름
+            key: k8s             # (3) 가져올 데이터 값의 키
+                                 # 최종 결과 -> ENV_KEYNAME_2=$(k8s 키에 해당하는 값)
+                                 #              ENV_KEYNAME_2=kubernetes

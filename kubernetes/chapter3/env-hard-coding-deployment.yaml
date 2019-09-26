@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: env-hard-coding-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-nginx
+  template:
+    metadata:
+      name: my-nginx-pod
+      labels:
+        app: my-nginx
+    spec:
+      containers:
+      - name: nginx
+        env:
+        - name: LOG_LEVEL
+          value: INFO
+        image: nginx:1.10
+        ports:
+        - containerPort: 80

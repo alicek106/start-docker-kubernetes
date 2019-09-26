@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-from-prvate-repo
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      name: mypod
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: test-container
+        image: alicek106.ipdisk.co.kr/busybox:latest
+        args: ['tail', '-f', '/dev/null']
+      imagePullSecrets:
+      - name: registry-auth-registry

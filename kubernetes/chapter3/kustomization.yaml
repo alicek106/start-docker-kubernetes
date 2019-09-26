@@ -1,0 +1,6 @@
+secretGenerator:                # 시크릿을 생성하기 위한 지시문
+- name: kustomize-secret
+  type: kubernetes.io/tls       # tls 타입의 시크릿을 생성 
+  files:
+  - tls.crt=cert.crt            # tls.crt 라는 키에 cert.crt 파일의 내용을 저장
+  - tls.key=cert.key            # tls.key 라는 키에 cert.key 파일의 내용을 저장
