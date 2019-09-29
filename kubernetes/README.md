@@ -8,11 +8,11 @@
 - [인그레스](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter4)
 - [퍼시스턴트 볼륨, 퍼시스턴트 볼륨 클레임](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter5)
 - [서비스 어카운트, RBAC](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter6)
-- 리소스 관리
-- 스케줄링
-- 애플리케이션 상태와 배포
-- 커스텀 리소스
-- 포드를 사용하는 다른 리소스 (스테이트풀셋, 잡, 데몬셋)
+- [리소스 관리](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter7)
+- [스케줄링](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter8)
+- [애플리케이션 상태와 배포](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter9)
+- [커스텀 리소스](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter10)
+- [포드를 사용하는 다른 리소스 (스테이트풀셋, 잡, 데몬셋)](https://github.com/alicek106/wikibooks/tree/master/kubernetes/chapter11)
 
 ## 그 밖의 유용한 강좌 링크
 
@@ -22,6 +22,8 @@
 4. [AWS에서 kubeadm로 클라우드 프로바이더를 설정해 쿠버네티스 설치하기 (작성 중)](https://blog.naver.com/alice_k106)
 5. [GKE에서 Google Persistent Disk를 사용해 퍼시스턴트 볼륨 사용하기 (작성 중)](https://blog.naver.com/alice_k106)
 6. [Dex와 Guard를 이용한 쿠버네티스 사용자 인증 방법](https://blog.naver.com/alice_k106/221598325656)
+7. [애드미션 컨트롤러를 직접 구현해보기](https://blog.naver.com/alice_k106/221546328906)
+8. [커스텀 리소스의 제어를 위한 Operator 직접 구현해보기](https://blog.naver.com/alice_k106/221586279079)
 
 # TODO
 - [부록] AWS CLI 설치 방법
