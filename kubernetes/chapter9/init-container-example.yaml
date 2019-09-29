@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-example
+spec:
+  initContainers: # 초기화 컨테이너를 이 항목에 정의합니다.
+  - name: my-init-container
+    image: busybox
+    command: ["sh", "-c", "echo Hello World!"]
+  containers: # 애플리케이션 컨테이너를 이 항목에 정의합니다.
+  - name: nginx
+    image: nginx

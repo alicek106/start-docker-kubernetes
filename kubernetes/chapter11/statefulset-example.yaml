@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset-example
+spec:
+  serviceName: statefulset-service
+  selector:
+    matchLabels:
+      name: statefulset-example
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: statefulset-example
+    spec:
+      containers:
+      - name: statefulset-example
+        image: alicek106/rr-test:echo-hostname
+        ports:
+        - containerPort: 80
+          name: web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: statefulset-service
+spec:
+  ports:
+    - port: 80
+      name: web
+  clusterIP: None
+  selector:
+    name: statefulset-example
+

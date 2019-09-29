@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet                           # [1]
+metadata:
+  name: daemonset-example
+spec:
+  selector:
+    matchLabels:
+      name: my-daemonset-example         # [2.1] 포드를 생성하기 위한 셀렉터 설정
+  template:
+    metadata:                              # [2.2] 포드 라벨 설정
+      labels:
+        name: my-daemonset-example
+    spec:
+      tolerations:                           # [3] 마스터 노드에도 포드를 생성
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: daemonset-example
+        image: busybox                      # 테스트를 위해 busybox 이미지 사용
+        args: ["tail", "-f", "/dev/null"]
+        resources:                           # [4] 자원 할당량을 제한
+          limits:
+            cpu: 100m
+            memory: 200Mi

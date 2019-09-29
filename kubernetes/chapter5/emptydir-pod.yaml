@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-pod
+spec:
+  containers:
+  - name: content-creator
+    image: alicek106/alpine-wget:latest
+    args: ["tail", "-f", "/dev/null"]
+    volumeMounts:
+    - name: my-emptydir-volume
+      mountPath: /data                      # 1. 이 컨테이너가 /data 에 파일을 생성하면
+
+  - name: apache-webserver
+    image: httpd:2
+    volumeMounts:
+    - name: my-emptydir-volume
+      mountPath: /usr/local/apache2/htdocs/  # 2. 아파치 웹 서버에서 접근 가능합니다.
+
+  volumes:
+    - name: my-emptydir-volume
+      emptyDir: {}                             # 포드 내에서 파일을 공유하는 emptyDir

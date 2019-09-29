@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: termination-grace-period-seconds
+spec:
+  terminationGracePeriodSeconds: 10
+  containers:
+  - name: termination-grace-period-seconds
+    image: nginx
+    lifecycle:
+      preStop:
+        exec:
+          command: ["/usr/sbin/nginx","-s","quit"]

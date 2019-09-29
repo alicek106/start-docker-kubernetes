@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-master-toleration
+spec:
+  tolerations:
+  - key: node-role.kubernetes.io/master  
+    effect: NoSchedule                  
+    operator: Equal
+    value: ""
+  nodeSelector:
+    node-role.kubernetes.io/master: ""   # 마스터 노드에서도 포드가 생성되도록 지정합니다.
+  containers:
+  - name: nginx
+    image: nginx:latest

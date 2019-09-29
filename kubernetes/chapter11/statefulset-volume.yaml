@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset-volume
+spec:
+  serviceName: statefulset-volume-service
+  selector:
+    matchLabels:
+      name: statefulset-volume-example
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: statefulset-volume-example
+    spec:
+      containers:
+      - name: statefulset-volume-example
+        image: alicek106/rr-test:echo-hostname
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: webserver-files
+          mountPath: /var/www/html/
+  volumeClaimTemplates:
+  - metadata:
+      name: webserver-files
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: generic
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: statefulset-volume-service
+spec:
+  ports:
+    - port: 80
+      name: web
+  clusterIP: None
+  selector:
+    name: statefulset-volume-example

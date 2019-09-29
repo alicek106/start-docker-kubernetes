@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjob-example
+spec:
+  schedule: "*/1 * * * *"        # Job의 실행 주기
+  jobTemplate:                 # 실행될 Job의 설정 내용 (spec)
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: cronjob-example
+            image: busybox
+            args: ["sh", "-c", "date"]

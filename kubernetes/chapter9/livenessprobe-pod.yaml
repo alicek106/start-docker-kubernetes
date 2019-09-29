@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: livenessprobe-pod
+spec:
+  containers:
+  - name: livenessprobe-pod
+    image: nginx
+    livenessProbe:  # 이 컨테이너에 대해 livenessProbe를 정의합니다.
+      httpGet:      # HTTP 요청을 통해 애플리케이션의 상태를 검사합니다.
+        port: 80    # <포드의 IP>:80/ 경로를 통해 헬스 체크 요청을 보냅니다. 
+        path: /

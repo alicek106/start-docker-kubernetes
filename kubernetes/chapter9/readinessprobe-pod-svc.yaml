@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readinessprobe-pod
+  labels:
+    my-readinessprobe: test
+spec:
+  containers:
+  - name: readinessprobe-pod
+    image: nginx       # Nginx 서버 컨테이너를 생성합니다.
+    readinessProbe:    # <포드의 IP>:80/ 로 상태 검사 요청을 전송합니다.
+      httpGet:
+        port: 80
+        path: /
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: readinessprobe-svc
+spec:
+  ports:
+    - name: nginx
+      port: 80
+      targetPort: 80
+  selector:
+    my-readinessprobe: test
+  type: ClusterIP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-usecase
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  initContainers:
+  - name: wait-other-service
+    image: busybox
+    command: ['sh', '-c', 'until nslookup myservice; do echo waiting..; sleep 1; done;']

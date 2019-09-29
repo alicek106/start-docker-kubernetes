@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: service-reader-rolebinding
+subjects:
+- kind: Group
+  name: system:serviceaccounts
+roleRef:
+  kind: ClusterRole  # 클러스터 롤 바인딩에서 연결할 권한은 클러스터 롤이여야 합니다.
+  name: service-reader
+  apiGroup: rbac.authorization.k8s.io
+

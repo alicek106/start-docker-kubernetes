@@ -1,0 +1,37 @@
+# Reference : https://github.com/kubernetes/kubernetes/issues/51671
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minreadyseconds-v1
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: minready-test
+  template:
+    metadata:
+      labels:
+        app: minready-test
+    spec:
+      containers:
+      - name: minreadyseconds-v1
+        image: alicek106/rr-test:echo-hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myservice
+spec:
+  ports:
+  - name: web-port
+    port: 80
+    targetPort: 80
+  selector:
+    app: minready-test
+  type: NodePort

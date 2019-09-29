@@ -1,0 +1,6 @@
+apiVersion: k106.com/v1alpha1
+kind: Alice
+metadata:
+  name: my-custom-resource
+spec:
+  myvalue: "This is my value"

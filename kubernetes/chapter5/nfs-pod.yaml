@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-pod
+spec:
+  containers:
+    - name: nfs-mount-container
+      image: busybox
+      args: [ "tail", "-f", "/dev/null" ]
+      volumeMounts:
+      - name: nfs-volume
+        mountPath: /mnt           # 포드 컨테이너 내부의 /mnt 디렉터리에 마운트합니다.
+  volumes:
+  - name : nfs-volume
+    nfs:                            # NFS 서버의 볼륨을 포드의 컨테이너에 마운트합니다.
+      path: /
+      server: {NFS_SERVICE_IP}
+

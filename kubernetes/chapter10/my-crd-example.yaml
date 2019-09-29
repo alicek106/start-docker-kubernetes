@@ -1,0 +1,23 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: alices.k106.com  # 1. CRD의 이름
+spec:
+  group: k106.com      # 2. 커스텀 리소스의 API 그룹
+  version: v1alpha1     #    커스텀 리소스의 API 버전
+  scope: Namespaced   #    커스텀 리소스가 네임스페이스에 속하는지 여부
+  names:
+    plural: alices        # 3. 커스텀 리소스의 이름 (복수형)
+    singular: alice      #    커스텀 리소스의 이름 (단수형)
+    kind: Alice         #    YAML 파일 등에서 사용될 커스텀 리소스의 Kind
+    shortNames: ["ac"] #    커스텀 리소스 이름의 줄임말
+  validation:
+    openAPIV3Schema:    # 4. 커스텀 리소스의 데이터를 정의
+      required: ["spec"]   #   커스텀 리소스에는 반드시 "spec" 이 존재해야 함.
+      properties:         #    커스텀 리소스에 저장될 데이터 형식을 정의
+        spec:
+          required: ["myvalue"]
+          properties:
+            myvalue:
+              type: "string"
+              minimum: 1

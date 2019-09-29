@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-nodeaffinity-required
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: mylabel/disk         
+            operator: In          # values의 값 중 하나만 만족하면 됩니다.
+            values:
+            - ssd
+            - hdd 
+  containers:
+  - name: nginx
+    image: nginx:latest

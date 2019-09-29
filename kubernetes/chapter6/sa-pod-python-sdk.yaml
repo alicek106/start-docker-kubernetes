@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-python-sdk
+spec:
+  serviceAccountName: alicek106
+  containers:
+  - name: k8s-python-sdk
+    image: alicek106/k8s-sdk-python:latest

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-toleration-test
+spec:
+  tolerations:
+  - key: alicek106/my-taint 
+    value: dirty              
+    operator: Equal          # alicek106/my-taint 키의 값이 dirty이며 (Equal)
+    effect: NoSchedule       # Taint 효과가 NoSchedule인 경우 해당 Taint를 용인합니다.
+  containers:
+  - name: nginx
+    image: nginx:latest

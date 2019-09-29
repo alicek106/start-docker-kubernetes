@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: service-reader
+rules:
+- apiGroups: [""]                 # 1. 대상이 될 오브젝트의 API 그룹
+  resources: ["services"]          # 2. 대상이 될 오브젝트의 이름
+  verbs: ["get", "list"]             # 3. 어떠한 동작을 허용할 것인지 명시

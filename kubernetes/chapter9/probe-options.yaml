@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-options-example
+  labels:
+    my-readinessprobe: test
+spec:
+  containers:
+  - name: probe-options-example
+    image: nginx
+    readinessProbe:
+      httpGet:
+        port: 80
+        path: /
+      periodSeconds: 5
+      initialDelaySeconds: 10
+      timeoutSeconds: 1
+      successThreshold: 1
+      failureThreshold: 3

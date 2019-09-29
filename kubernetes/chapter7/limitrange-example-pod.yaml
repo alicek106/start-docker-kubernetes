@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: pod-limit-range
+spec:
+  limits:
+  - max:                   
+      memory: 1Gi
+    min:                   
+      memory: 200Mi
+    type: Pod        

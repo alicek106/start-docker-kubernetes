@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: besteffort-quota
+  namespace: default
+spec:
+  hard:
+    count/pods: 1
+  scopes:
+    - BestEffort

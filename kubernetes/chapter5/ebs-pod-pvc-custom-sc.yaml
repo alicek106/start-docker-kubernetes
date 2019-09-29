@@ -1,11 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-ebs-pvc-selector
+  name: my-ebs-pvc-custom-sc
 spec:
-  selector:
-    matchLabels:
-      region: ap-northeast-2a
+  storageClassName: my-ebs-volume
   accessModes:
     - ReadWriteOnce
   resources:
@@ -15,7 +13,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-mount-container-label
+  name: ebs-mount-container-custom-sc
 spec:
   containers:
     - name: ebs-mount-container
@@ -27,4 +25,4 @@ spec:
   volumes:
   - name : ebs-volume
     persistentVolumeClaim:
-      claimName: my-ebs-pvc-selector
+      claimName: my-ebs-pvc-custom-sc

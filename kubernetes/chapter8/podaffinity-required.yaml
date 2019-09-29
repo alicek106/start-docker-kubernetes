@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-podaffinity
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: mylabel/database
+            operator: In
+            values:
+            - mysql
+        topologyKey: failure-domain.beta.kubernetes.io/zone
+  containers:
+  - name: nginx
+    image: nginx:latest

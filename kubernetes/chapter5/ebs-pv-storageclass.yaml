@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-pv-custom-cs
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: my-ebs-volume
+  awsElasticBlockStore:
+    fsType: ext4
+    volumeID: <VOLUME_ID> # 여러분의 EBS 볼륨 ID로 대신합니다.
+    # volumeID: vol-0390f3a601e58ce9b

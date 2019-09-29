@@ -1,0 +1,10 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: simple-pdb-example
+spec:
+maxUnavailable: 1        # 비활성화될 수 있는 포드의 최대 갯수 또는 비율 (%) 
+  # minAvailable: 2
+  selector:                 # PDB의 대상이 될 포드를 선택하는 라벨 셀렉터 
+    matchLabels:
+      app: webserver
