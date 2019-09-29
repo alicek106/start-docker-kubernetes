@@ -8,14 +8,13 @@ metadata:
 spec:
   tls:
   - hosts:
-    - alicek106.example.com            # ¿©·¯ºĞÀÇ µµ¸ŞÀÎ ÀÌ¸§À» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù.
+    - alicek106.example.com            # ì—¬ëŸ¬ë¶„ì˜ ë„ë©”ì¸ ì´ë¦„ì„ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤.
     secretName: tls-secret
   rules:
-  - host: alicek106.example.com          # ¿©·¯ºĞÀÇ µµ¸ŞÀÎ ÀÌ¸§À» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù.
+  - host: alicek106.example.com          # ì—¬ëŸ¬ë¶„ì˜ ë„ë©”ì¸ ì´ë¦„ì„ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤.
     http:
       paths:
       - path: /echo-hostname
         backend:
           serviceName: hostname-service
           servicePort: 80
-

@@ -13,4 +13,4 @@ spec:
   - name: ubuntu-sidecar-container
     image: ubuntu:16.04
     command: ["tail"]
-    args: ["-f", "/dev/null"] # ÄÁÅ×ÀÌ³Ê°¡ Á¾·áµÇÁö ¾Êµµ·Ï À¯ÁöÇÕ´Ï´Ù.
+    args: ["-f", "/dev/null"] # í¬ë“œê°€ ì¢…ë£Œë˜ì§€ ì•Šë„ë¡ ìœ ì§€í•©ë‹ˆë‹¤

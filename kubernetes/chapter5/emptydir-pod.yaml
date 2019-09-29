@@ -9,14 +9,14 @@ spec:
     args: ["tail", "-f", "/dev/null"]
     volumeMounts:
     - name: my-emptydir-volume
-      mountPath: /data                      # 1. ÀÌ ÄÁÅ×ÀÌ³Ê°¡ /data ¿¡ ÆÄÀÏÀ» »ı¼ºÇÏ¸é
+      mountPath: /data                      # 1. ì´ ì»¨í…Œì´ë„ˆê°€ /data ì— íŒŒì¼ì„ ìƒì„±í•˜ë©´
 
   - name: apache-webserver
     image: httpd:2
     volumeMounts:
     - name: my-emptydir-volume
-      mountPath: /usr/local/apache2/htdocs/  # 2. ¾ÆÆÄÄ¡ À¥ ¼­¹ö¿¡¼­ Á¢±Ù °¡´ÉÇÕ´Ï´Ù.
+      mountPath: /usr/local/apache2/htdocs/  # 2. ì•„íŒŒì¹˜ ì›¹ ì„œë²„ì—ì„œ ì ‘ê·¼ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
   volumes:
     - name: my-emptydir-volume
-      emptyDir: {}                             # Æ÷µå ³»¿¡¼­ ÆÄÀÏÀ» °øÀ¯ÇÏ´Â emptyDir
+      emptyDir: {}                             # í¬ë“œ ë‚´ì—ì„œ íŒŒì¼ì„ ê³µìœ í•˜ëŠ” emptyDir

@@ -8,10 +8,10 @@ spec:
       image: busybox
       args: [ "tail", "-f", "/dev/null" ]
       volumeMounts:
-      - name: configmap-volume          #  volumes¿¡¼­ Á¤ÀÇÇÑ ÄÁÇÇ±×¸Ê º¼·ı ÀÌ¸§
-        mountPath: /etc/config             # ÄÁÇÇ±×¸ÊÀÇ µ¥ÀÌÅÍ°¡ À§Ä¡ÇÒ °æ·Î
+      - name: configmap-volume          # volumesì—ì„œ ì •ì˜í•œ ì»¨í”¼ê·¸ë§µ ë³¼ë¥¨ ì´ë¦„ 
+        mountPath: /etc/config             # ì»¨í”¼ê·¸ë§µì˜ ë°ì´í„°ê°€ ìœ„ì¹˜í•  ê²½ë¡œ
 
   volumes:
-    - name: configmap-volume            # ÄÁÇÇ±×¸Ê º¼·ı ÀÌ¸§
+    - name: configmap-volume            # ì»¨í”¼ê·¸ë§µ ë³¼ë¥¨ ì´ë¦„
       configMap:
-        name: start-k8s                   
+        name: start-k8s

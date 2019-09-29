@@ -3,14 +3,15 @@ kind: Ingress
 metadata:
   name: ingress-example
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2 # pathÀÇ (.*) ¿¡¼­ È¹µæÇÑ °æ·Î·Î Àü´ŞÇÕ´Ï´Ù.
+    nginx.ingress.kubernetes.io/rewrite-target: /$2 # pathì˜ (.*) ì—ì„œ íšë“í•œ ê²½ë¡œë¡œ ì „ë‹¬í•©ë‹ˆë‹¤.
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: a2cbfefcfbcfd48f8b4c15039fbb6d0a-1976179327.ap-northeast-2.elb.amazonaws.com
+  - host: <ì—¬ëŸ¬ë¶„ì´ Nginx ì»¨íŠ¸ë¡¤ëŸ¬ì— ì ‘ê·¼í•˜ê¸° ìœ„í•œ ë„ë©”ì¸ ì´ë¦„ì„ ì…ë ¥í•©ë‹ˆë‹¤>
+  #- host: a2cbfefcfbcfd48f8b4c15039fbb6d0a-1976179327.ap-northeast-2.elb.amazonaws.com
     http:
       paths:
-      - path: /echo-hostname(/|$)(.*)          # (.*) À» ÅëÇØ °æ·Î¸¦ ¾ò½À´Ï´Ù.
+      - path: /echo-hostname(/|$)(.*)          # (.*) ì„ í†µí•´ ê²½ë¡œë¥¼ ì–»ìŠµë‹ˆë‹¤.
         backend:
           serviceName: hostname-service
           servicePort: 80
