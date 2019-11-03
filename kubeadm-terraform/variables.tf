@@ -6,28 +6,28 @@ locals {
 }
 
 # You can adjust below variables
-variable default_keypair_name{
-  default = "Docker Engine Test Instance"
+variable default_keypair_name {
+  default = "mysshkey"
 }
 
-variable number_of_worker{
+variable number_of_worker {
   description = "The number of worker nodes"
-  default = 1
+  default     = 1
 }
 
-variable cluster_id_tag{
+variable cluster_id_tag {
   description = "Cluster ID tag for kubeadm"
-  default = "alice"
+  default     = "alice"
 }
 
-variable cluster_id_value{
+variable cluster_id_value {
   description = "Cluster ID value, it can be shared or owned"
-  default = "owned"
+  default     = "owned"
 }
 
 variable control_cidr {
   description = "CIDR of security group"
-  default = "0.0.0.0/0"
+  default     = "0.0.0.0/0"
 }
 
 variable owner {
@@ -50,12 +50,12 @@ variable vpc_cidr {
 
 variable vpc_name {
   description = "Name of the VPC"
-  default = "kubeadm_vpc"
+  default     = "kubeadm_vpc"
 }
 
 variable subnet_name {
   description = "Name of the Subnet"
-  default = "kubeadm_subnet"
+  default     = "kubeadm_subnet"
 }
 
 # Instance Types
@@ -66,6 +66,6 @@ variable worker_instance_type {
   default = "t2.medium"
 }
 
-variable instance_ami{
+variable instance_ami {
   default = "ami-067c32f3d5b9ace91"
 }

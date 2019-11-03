@@ -24,7 +24,7 @@
 
 ## 그 밖의 유용한 강좌 링크
 
-1. [AWS에서 kubeadm로 클라우드 프로바이더를 설정해 쿠버네티스 설치하기 (작성 중)](https://blog.naver.com/alice_k106)
+1. [AWS에서 kubeadm로 클라우드 프로바이더를 설정해 쿠버네티스 설치하기 (작성 중)](https://blog.naver.com/alice_k106/221696987140)
 2. [kops 설치 시, IAM 역할 및 사용자 생성하기](https://blog.naver.com/alice_k106/221342005691)
 3. [쿠버네티스 컴포넌트의 실행 옵션 변경하기 (작성 중)](https://blog.naver.com/alice_k106)
 4. [GKE에서 Google Persistent Disk를 사용해 퍼시스턴트 볼륨 사용하기 (작성 중)](https://blog.naver.com/alice_k106)
