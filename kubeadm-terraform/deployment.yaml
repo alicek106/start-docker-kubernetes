@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hostname-deployment
+  labels:
+    app: hostname-service-label
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hostname-service-label
+
+  template:
+    metadata:
+      labels:
+        app: hostname-service-label
+
+    spec:
+      containers:
+        - name: hostname-service-container
+          image: alicek106/ingress-annotation-test:0.0
+          ports:
+          - name: flask-port
+            containerPort: 5000
+          imagePullPolicy: Always
