@@ -24,15 +24,12 @@
 
 ## 그 밖의 유용한 강좌 링크
 
-1. [kops 설치 시, IAM 역할 및 사용자 생성하기](https://blog.naver.com/alice_k106/221342005691)
-2. [CPU Affinity를 위해 CPU Manager 사용하기](https://blog.naver.com/alice_k106/221633530545)
+1. [AWS에서 kubeadm로 클라우드 프로바이더를 설정해 쿠버네티스 설치하기 (작성 중)](https://blog.naver.com/alice_k106)
+2. [kops 설치 시, IAM 역할 및 사용자 생성하기](https://blog.naver.com/alice_k106/221342005691)
 3. [쿠버네티스 컴포넌트의 실행 옵션 변경하기 (작성 중)](https://blog.naver.com/alice_k106)
-4. [AWS에서 kubeadm로 클라우드 프로바이더를 설정해 쿠버네티스 설치하기 (작성 중)](https://blog.naver.com/alice_k106)
-5. [GKE에서 Google Persistent Disk를 사용해 퍼시스턴트 볼륨 사용하기 (작성 중)](https://blog.naver.com/alice_k106)
-6. [Dex와 Guard를 이용한 쿠버네티스 사용자 인증 방법](https://blog.naver.com/alice_k106/221598325656)
+4. [GKE에서 Google Persistent Disk를 사용해 퍼시스턴트 볼륨 사용하기 (작성 중)](https://blog.naver.com/alice_k106)
+5. [Dex와 Guard를 이용한 쿠버네티스 사용자 인증 방법](https://blog.naver.com/alice_k106/221598325656)
+6. [CPU Affinity를 위해 CPU Manager 사용하기](https://blog.naver.com/alice_k106/221633530545)
 7. [애드미션 컨트롤러를 직접 구현해보기](https://blog.naver.com/alice_k106/221546328906)
 8. [커스텀 리소스의 제어를 위한 Operator 직접 구현해보기](https://blog.naver.com/alice_k106/221586279079)
-
-# TODO
-- [부록] AWS CLI 설치 방법
 
