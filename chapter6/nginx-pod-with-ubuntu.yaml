@@ -11,6 +11,6 @@ spec:
       protocol: TCP
 
   - name: ubuntu-sidecar-container
-    image: ubuntu:16.04
+    image: alicek106/rr-test:curl
     command: ["tail"]
     args: ["-f", "/dev/null"] # 포드가 종료되지 않도록 유지합니다
