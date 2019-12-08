@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-ebs-pvc                  # 1. my-ebs-pvc라는 이름의 pvc 를 생성합니다.
 spec:
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce       # 2.1 속성이 ReadWriteOnce인 퍼시스턴트 볼륨과 연결합니다.
   resources:
