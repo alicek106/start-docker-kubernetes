@@ -1,8 +1,8 @@
 # Global tag
 locals {
-  common_tags = "${map(
+  common_tags = map(
     "kubernetes.io/cluster/${var.cluster_id_tag}", "${var.cluster_id_value}"
-  )}"
+  )
 }
 
 # You can adjust below variables
