@@ -7,12 +7,12 @@ locals {
 
 # You can adjust below variables
 variable default_keypair_name {
-  default = "mysshkey"
+  default = "Docker Engine Test Instance"
 }
 
 variable number_of_worker {
   description = "The number of worker nodes"
-  default     = 1
+  default     = 3
 }
 
 variable cluster_id_tag {
@@ -67,5 +67,13 @@ variable worker_instance_type {
 }
 
 variable instance_ami {
-  default = "ami-067c32f3d5b9ace91"
+  default = "ami-0d777f54156eae7d9" # ubuntu 18.04 bionic
+}
+
+variable kubernetes_version {
+  default = "latest"
+}
+
+variable kubernetes_cni_version {
+  default = "latest"
 }

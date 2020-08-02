@@ -1,0 +1,35 @@
+kind: ClusterConfiguration
+apiVersion: kubeadm.k8s.io/v1beta2
+apiServer:
+  extraArgs:
+    authorization-mode: Node,RBAC
+    cloud-provider: aws
+  timeoutForControlPlane: 4m0s
+certificatesDir: /etc/kubernetes/pki
+clusterName: kubernetes
+controlPlaneEndpoint: ""
+controllerManager:
+  extraArgs:
+    cloud-provider: aws
+dns:
+  type: CoreDNS
+etcd:
+  local:
+    dataDir: /var/lib/etcd
+imageRepository: k8s.gcr.io
+
+networking:
+  dnsDomain: cluster.local
+  podSubnet: 192.168.0.0/16 # Pod Subnet
+  serviceSubnet: 10.96.0.0/12
+scheduler: {}
+---
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: InitConfiguration
+bootstrapTokens:
+- token: "${token}"
+  description: "kubeadm bootstrap token"
+  ttl: "15m"
+nodeRegistration:
+  kubeletExtraArgs:
+    cloud-provider: aws
