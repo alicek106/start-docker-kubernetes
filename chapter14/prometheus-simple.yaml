@@ -1,0 +1,9 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+  namespace: default
+spec:
+  replicas: 1
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
