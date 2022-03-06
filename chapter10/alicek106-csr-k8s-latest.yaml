@@ -1,0 +1,15 @@
+# 쿠버네티스 1.19 버전부터 새로운 CSR 리소스 형식이 도입되었습니다.
+# 최신 버전 (1.22 버전 이상) 의 쿠버네티스를 사용하고 있다면 아래의 리소스를 사용해주세요.
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: alicek106-csr
+spec:
+  signerName: kubernetes.io/kube-apiserver-client
+  groups:
+  - system:authenticated
+  request: <CSR>
+  usages:
+  - digital signature
+  - key encipherment
+  - client auth

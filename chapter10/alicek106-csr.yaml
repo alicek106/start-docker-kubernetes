@@ -1,3 +1,5 @@
+# 이 YAML 파일은 쿠버네티스 버전 1.22 이상에서는 사용할 수 없습니다.
+# 최신 버전의 쿠버네티스를 사용하고 있다면 alicek106-csr-k8s-latest.yaml 파일을 통해 실습을 진행해주세요 
 apiVersion: certificates.k8s.io/v1beta1
 kind: CertificateSigningRequest
 metadata:
