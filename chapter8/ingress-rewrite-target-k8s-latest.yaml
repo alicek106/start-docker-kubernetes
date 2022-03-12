@@ -1,7 +1,4 @@
-# 쿠버네티스 1.22 버전 이상부터 ingress의 스펙이 바뀌었으며, 아래의 매니페스트를 사용할 수 없게 변경되었습니다.
-# 최신 버전의 쿠버네티스를 사용하고 있다면 ingress-rewrite-target-k8s-latest.yaml 파일을 통해 실습을 진행해주세요.
-# 참고 링크 : https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-example
@@ -15,6 +12,9 @@ spec:
     http:
       paths:
       - path: /echo-hostname(/|$)(.*)          # (.*) 을 통해 경로를 얻습니다.
-        backend:
-          serviceName: hostname-service
-          servicePort: 80
+        pathType: Prefix
+        backend: 
+          service: 
+            name: hostname-service
+            port: 
+              number: 80

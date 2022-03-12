@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-example
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - alicek106.example.com            # 여러분의 도메인 이름을 입력해야 합니다.
+    secretName: tls-secret
+  rules:
+  - host: alicek106.example.com          # 여러분의 도메인 이름을 입력해야 합니다.
+    http:
+      paths:
+      - path: /echo-hostname
+        pathType: Prefix
+        backend: 
+          service: 
+            name: hostname-service
+            port: 
+              number: 80
