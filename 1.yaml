@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-nginx
+  labels:
+    dep: nginx
+spec:
+  selector:
+    matchLabels:
+      tem: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        tem: nginx
+    spec:
+      containers:
+      - name: n1
+        image: nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-depnginx
+  labels:
+    svc: depnginx
+spec:
+  selector:
+    tem: nginx
+  type: NodePort
+  ports:
+  - name: web
+    port: 80
+    targetPort: 80
+    nodePort: 32080
+    protocol: TCP

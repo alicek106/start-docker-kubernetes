@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-apache
+  labels:
+    dep: apache
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tem: apache
+  template:
+    metadata:
+      labels:
+        tem: apache
+  spec:
+    containers:
+    - name: a1
+      image: httpd
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 80
+      volumeMounts:
+      - mountPath: /web
+        name: sdkim-web
+    volumes:
+    - name: sdkim-web
+      emptyDir: {}
+
+---
+apiVersion: v1
+kinc: Service
+metadata:
+  name: svc-apache
+  labels:
+    svc: apache
+spec:
+  selector:
+    tem: apache
+  type: NodePort
+  ports:
+  - name: web
+    port: 8080
+    targetPort: 80
+    nodePort: 31080
+    protocol: TCP
