@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rep-web
+  labels:
+    app: dhcho-web
+spec:
+  replicas: 3
+  selector:
+    matchLables:
+      app: temp-web
+  template:
+    metadata:
+      name: web-nginx
+      labels:
+        app: temp-web
+      spec:
+        containers:
+          - name: n1
+            image: nginx
+            imagePullPolicy: IfNotPresent
+            ports:
+            - containerPort: 80
