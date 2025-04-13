@@ -7,8 +7,9 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  awsElasticBlockStore:
+  csi:
+    driver: ebs.csi.aws.com
     fsType: ext4
-    volumeID: <VOLUME_ID>
+    volumeHandle: <VOLUME_ID>
   persistentVolumeReclaimPolicy: Delete
 

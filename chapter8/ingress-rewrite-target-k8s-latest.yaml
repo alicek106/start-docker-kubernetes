@@ -4,17 +4,19 @@ metadata:
   name: ingress-example
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2 # path의 (.*) 에서 획득한 경로로 전달합니다.
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   rules:
   - host: <여러분이 Nginx 컨트롤러에 접근하기 위한 도메인 이름을 입력합니다>
   #- host: a2cbfefcfbcfd48f8b4c15039fbb6d0a-1976179327.ap-northeast-2.elb.amazonaws.com
     http:
       paths:
       - path: /echo-hostname(/|$)(.*)          # (.*) 을 통해 경로를 얻습니다.
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend: 
           service: 
             name: hostname-service
             port: 
               number: 80
+
+                

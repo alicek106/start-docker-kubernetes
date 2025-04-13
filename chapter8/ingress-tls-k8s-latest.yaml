@@ -4,8 +4,8 @@ metadata:
   name: ingress-example
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - alicek106.example.com            # 여러분의 도메인 이름을 입력해야 합니다.

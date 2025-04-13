@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: denied-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:
+        cpu: "20m"
+        memory: "30Mi"
+      limits:
+        cpu: "20m"
+        memory: "30Mi"

@@ -1,0 +1,33 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scaling-policy-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-deployment
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 50
+        type: Utilization
+    type: Resource
+  maxReplicas: 5
+  minReplicas: 1
+  behavior:
+    scaleDown:                         # 1. 파드가 줄어드는 경우의 전략을 지정
+      stabilizationWindowSeconds: 300  # 2. 스케일링 윈도우를 설정
+      policies:                         # 3. 한 번에 몇 개의 파드를 생성/삭제하는지 설정  
+      - type: Pods
+        value: 4
+        periodSeconds: 60
+      - type: Percent
+        value: 10
+        periodSeconds: 120
+      selectPolicy: Max               # 4. 위 policies 중 어떤 값을 사용하는지 설정
+
+    # scaleUp:
+    # ... scaleUp 항목에서도 동일한 스펙을 정의할 수 있습니다.
+    

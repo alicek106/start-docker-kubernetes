@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: simple-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-deployment # deployment의 자원 사용량을 체크합니다.
+  metrics:
+  - resource:
+      name: cpu # CPU 사용량을 체크합니다.
+      target:
+        averageUtilization: 50 # 평균 활용률이 50% 이상인 경우
+        type: Utilization
+    type: Resource
+  maxReplicas: 5 # deployment의 파드 갯수는 5개까지 늘어날 수 있습니다.
+  minReplicas: 1

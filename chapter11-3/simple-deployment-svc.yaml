@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      name: my-webserver
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: my-webserver
+        image: alicek106/rr-test:echo-hostname
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 300m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-deployment-svc
+spec:
+  ports:
+    - name: web-port
+      port: 8080
+      targetPort: 80
+  selector:
+    app: webserver
+  type: ClusterIP

@@ -1,25 +1,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: grand-parent-clusterrole
-  labels:
-    rbac.authorization.k8s.io/aggregate-to-parent-clusterrole: "true"
-rules: []
-  #- apiGroups: [""]
-  #  resources: ["nodes"]
-  #  verbs: ["get", "list"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-aggregationRule:
-  clusterRoleSelectors:
-  - matchLabels:
-      rbac.authorization.k8s.io/aggregate-to-parent-clusterrole: "true"
-metadata:
   name: parent-clusterrole
   labels:
     rbac.authorization.k8s.io/aggregate-to-child-clusterrole: "true"
-rules: []
+rules:
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
